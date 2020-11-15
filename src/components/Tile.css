@@ -1,0 +1,12 @@
+.Tile {
+    background-color: orange;
+    width: 5rem;
+    height: 5rem;
+    opacity: 0.3;
+    display: grid;
+    place-content: center;
+}
+
+.Tile:hover {
+    opacity: 1;
+}

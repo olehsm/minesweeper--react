@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    place-items: center;
+    height: auto;
+    width: 100%;
+}
+
+.Board {
+    display: flex;
+    /* grid-template-columns: repeat(auto-fill,minmax(35vh,1fr)); */
+    /* grid-auto-rows: 1fr; */
+    /* height: auto; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60rem;
+    gap: 1rem;
+}
