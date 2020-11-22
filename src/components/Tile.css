@@ -10,3 +10,7 @@
 .Tile:hover {
     opacity: 1;
 }
+
+.bomb {
+    background-color: red;  
+}
