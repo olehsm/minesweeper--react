@@ -5,15 +5,21 @@ import "./Tile.css"
 type TileProps = {
     content: string
     state: number
+    tileId: string
 }
 
-const Tile = ({content, state} : TileProps) => {
+const Tile = ({tileId, content, state} : TileProps) => {
+
+    const handleClick = () => {
+        console.log("click", tileId)
+    }
+
+
     return <>
-        <a href="#">
-            <div className={state===0 ? "Tile bomb": "Tile"}>
+            <div className={"Tile"}
+                onClick={handleClick}>
                 { content}
             </div>
-        </a>
     </>
 }
 

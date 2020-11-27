@@ -15,7 +15,7 @@ const Board = ({tiles} : BoardProps) => {
             <div className="container">
                 <div className="Board">
                     {
-                        tiles.map(tile => <Tile key={tile.tileId} content={""} state={tile.state}/>)
+                        tiles.map(tile => <Tile key={tile.tileId} tileId={tile.tileId} content={tile.message} state={tile.state}/>)
                     }
                 </div>
             </div>
@@ -23,7 +23,6 @@ const Board = ({tiles} : BoardProps) => {
 		        <span className="disclaimer">Photo by <a href="https://unsplash.com/@nervum?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jack B</a> on <a href="https://unsplash.com/s/photos/metal-detector?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
             </aside>
         </div>
-          
     </>
 }
 
