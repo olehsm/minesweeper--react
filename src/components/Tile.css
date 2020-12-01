@@ -5,12 +5,18 @@
     opacity: 0.3;
     display: grid;
     place-content: center;
+    cursor: pointer;
 }
 
 .Tile:hover {
     opacity: 1;
 }
 
+.checked{
+    opacity:1;
+}
+
 .bomb {
-    background-color: red;  
+    background-color: red;
+    opacity: 1;  
 }

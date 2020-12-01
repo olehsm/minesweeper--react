@@ -1,4 +1,4 @@
-enum TileState {
+export enum TileState {
     bomb,
     valid
 }
@@ -12,11 +12,11 @@ export class TileModel {
         for(let i=0; i < boardWith * boardWith; i++) {
             if(i < bombsAmount)
             {
-                let newTile = new TileType(TileState.bomb, i.toString(), "");
+                let newTile = new TileType(TileState.bomb, i.toString(), "", false)
                 tiles.push(newTile);
             }
             else {
-                let newTile = new TileType(TileState.valid, i.toString(), "");
+                let newTile = new TileType(TileState.valid, i.toString(), "", false)
                 tiles.push(newTile);
             }
 
@@ -48,6 +48,11 @@ export class TileModel {
         return this.model
     }
 
+    setClicked(tileId: string) {
+        const tile = this.model.find(tile => tile.tileId === tileId)
+        if(tile) tile.clicked = true
+    }
+
 }
 
 
@@ -55,11 +60,13 @@ export class TileType {
     tileId: string
     message: string
     state: TileState
+    clicked: boolean
     
-    constructor( state: TileState, id: string, content: string) {
+    constructor( state: TileState, id: string, content: string, clicked: boolean) {
         this.tileId = id
         this.message = content
         this.state = state
+        this.clicked = clicked
     }
 }
 

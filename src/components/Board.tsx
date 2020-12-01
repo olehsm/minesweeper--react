@@ -15,7 +15,7 @@ const Board = ({tiles} : BoardProps) => {
             <div className="container">
                 <div className="Board">
                     {
-                        tiles.map(tile => <Tile key={tile.tileId} tileId={tile.tileId} content={tile.message} state={tile.state}/>)
+                        tiles.map(tile => <Tile key={tile.tileId} tileId={tile.tileId} content={tile.message} state={tile.state} clicked={tile.clicked}/>)
                     }
                 </div>
             </div>
