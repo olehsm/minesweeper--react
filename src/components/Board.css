@@ -19,7 +19,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 60rem;
-    gap: 1rem;
+    gap: 0.7rem;
 }
 
 aside {

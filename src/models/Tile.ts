@@ -50,7 +50,14 @@ export class TileModel {
 
     setClicked(tileId: string) {
         const tile = this.model.find(tile => tile.tileId === tileId)
-        if(tile) tile.clicked = true
+        if(tile && !tile.clicked) {
+            tile.clicked = true
+        }
+    }
+
+    isClicked(tileId: string) {
+        const tile = this.model.find(tile => tile.tileId === tileId)
+        return tile?.clicked
     }
 
 }
@@ -69,4 +76,3 @@ export class TileType {
         this.clicked = clicked
     }
 }
-

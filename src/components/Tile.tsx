@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./Tile.css"
 import { TileState } from '../models/Tile'
+import {GameContext} from '../App'
+
 
 
 type TileProps = {
     content: string
     state: number
     tileId: string
-    clicked: boolean
-    //setClicked: (tileId:string) => void
 }
 
-const Tile = ({tileId, content, state, clicked} : TileProps) => {
+const Tile = ({tileId, content, state} : TileProps) => {
 
     const [tileContent, setTileContent] = useState("")
-    const [tileChecked, setTileChecked] = useState(clicked)
     const [isGameOver, setGameOver] = useState(false)
+    const gameContext  = useContext(GameContext);
     
     const handleClick = () => {
-        //console.log("click", tileId)
 
         if(state === TileState.bomb) {
-            //console.log("Game over")
             setGameOver(true)
         } else {
-            let total = parseInt(content, 10)
-            if(total !==0) {
+            let total = parseInt(content)
+            if(total > 0) {
                 setTileContent(content)
-                if(!tileChecked) setTileChecked(true)
+                gameContext.setClicked(tileId)
+            } else {
+                setTileContent(" ")
+                gameContext.setClicked(tileId)
             }  
-            if(!tileChecked) setTileChecked(true)
         }
     }
 
 
     return <>
-        <div className={`Tile ${!tileChecked ? "" : "checked"} ${!isGameOver ? "" : "bomb"}`}
+        <div className={`Tile ${!gameContext.isClicked(tileId) ? "" : "checked"} ${!isGameOver ? "" : "bomb"}`}
             onClick={handleClick}>
             <span>{tileContent}</span>
         </div>

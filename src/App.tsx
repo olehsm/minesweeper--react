@@ -2,12 +2,18 @@ import React from "react"
 import Board from "./components/Board"
 import {TileModel} from "./models/Tile"
 
+const boardWidth = 10
+const tileModel = new TileModel(boardWidth, 25)
+
+export const GameContext = React.createContext(tileModel);
+
 const App = () => {
-	const boardWidth = 10;
-	let tileModel = new TileModel(boardWidth, 25)
+	
 
 	return <>
-		<Board tiles={tileModel.get()}/>
+		<GameContext.Provider value={tileModel}>
+			<Board tiles={tileModel.get()}/>
+		</GameContext.Provider>
 	</>
 }
 
